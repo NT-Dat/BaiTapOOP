@@ -1,0 +1,26 @@
+# ninja log v5
+1	1089	6791638708916330	CMakeFiles/Bai7.dir/teacher.cpp.obj	a2dd7b14cf3a1536
+6	1196	6791638709973515	CMakeFiles/Bai7.dir/main.cpp.obj	b119bf8674e3d57d
+9	1489	6791638712955515	CMakeFiles/Bai7.dir/managerteacher.cpp.obj	29045a22a724ff55
+1490	1693	6791638714960504	Bai7.exe	be53de1c29bff78f
+6	579	6791639016395233	CMakeFiles/Bai7.dir/teacher.cpp.obj	a2dd7b14cf3a1536
+580	807	6791639018669160	Bai7.exe	be53de1c29bff78f
+4	910	6791643759642265	CMakeFiles/Bai7.dir/managerteacher.cpp.obj	29045a22a724ff55
+911	1102	6791643761557476	Bai7.exe	be53de1c29bff78f
+4	571	6791645509662235	CMakeFiles/Bai7.dir/teacher.cpp.obj	a2dd7b14cf3a1536
+573	818	6791645512145590	Bai7.exe	be53de1c29bff78f
+9	691	6791649593287501	CMakeFiles/Bai7.dir/teacher.cpp.obj	a2dd7b14cf3a1536
+6	898	6791649595371925	CMakeFiles/Bai7.dir/main.cpp.obj	b119bf8674e3d57d
+12	1026	6791649596648846	CMakeFiles/Bai7.dir/managerteacher.cpp.obj	29045a22a724ff55
+1026	1194	6791649598304438	Bai7.exe	be53de1c29bff78f
+4	824	6792574123256565	CMakeFiles/Bai7.dir/main.cpp.obj	b119bf8674e3d57d
+7	987	6792576525949417	CMakeFiles/Bai7.dir/main.cpp.obj	b119bf8674e3d57d
+17	1073	6792576526807119	CMakeFiles/Bai7.dir/managerteacher.cpp.obj	29045a22a724ff55
+1073	1244	6792576528482640	Bai7.exe	be53de1c29bff78f
+10	885	6792587313224359	CMakeFiles/Bai7.dir/teacher.cpp.obj	a2dd7b14cf3a1536
+6	1061	6792587315298808	CMakeFiles/Bai7.dir/main.cpp.obj	b119bf8674e3d57d
+15	1194	6792587316635222	CMakeFiles/Bai7.dir/managerteacher.cpp.obj	29045a22a724ff55
+1194	1368	6792587318340657	Bai7.exe	be53de1c29bff78f
+6	874	6792589757317876	CMakeFiles/Bai7.dir/main.cpp.obj	b119bf8674e3d57d
+10	1030	6792589758874046	CMakeFiles/Bai7.dir/managerteacher.cpp.obj	29045a22a724ff55
+1030	1208	6792589760629027	Bai7.exe	be53de1c29bff78f

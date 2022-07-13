@@ -1,0 +1,11 @@
+# ninja log v5
+0	360	6785997485709035	CMakeFiles/SmartPointer.dir/main.cpp.obj	b41be28d8a99098
+363	574	6785997487827404	SmartPointer.exe	64de7b434b270115
+3	828	6786004996858583	CMakeFiles/SmartPointer.dir/main.cpp.obj	b41be28d8a99098
+829	1234	6786005000897817	SmartPointer.exe	64de7b434b270115
+3	518	6786005503065608	CMakeFiles/SmartPointer.dir/main.cpp.obj	b41be28d8a99098
+518	701	6786005504876791	SmartPointer.exe	64de7b434b270115
+4	496	6786006861068932	CMakeFiles/SmartPointer.dir/main.cpp.obj	b41be28d8a99098
+497	664	6786006862714514	SmartPointer.exe	64de7b434b270115
+3	502	6786013070023147	CMakeFiles/SmartPointer.dir/main.cpp.obj	b41be28d8a99098
+504	679	6786013071828651	SmartPointer.exe	64de7b434b270115

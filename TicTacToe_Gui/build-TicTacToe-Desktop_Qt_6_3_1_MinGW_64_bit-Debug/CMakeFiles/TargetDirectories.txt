@@ -1,0 +1,5 @@
+C:/TienDat/Qt/TicTacToe_Gui/build-TicTacToe-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/TicTacToe.dir
+C:/TienDat/Qt/TicTacToe_Gui/build-TicTacToe-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/TienDat/Qt/TicTacToe_Gui/build-TicTacToe-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/TienDat/Qt/TicTacToe_Gui/build-TicTacToe-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/TicTacToe_autogen_timestamp_deps.dir
+C:/TienDat/Qt/TicTacToe_Gui/build-TicTacToe-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/TicTacToe_autogen.dir

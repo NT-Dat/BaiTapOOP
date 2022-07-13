@@ -1,0 +1,17 @@
+# ninja log v5
+3	889	6788223813374579	CMakeFiles/Hello.dir/main.cpp.obj	3d049b2e8b60da1
+889	1285	6788223817298129	Hello.exe	2e08fcb5dae8fcf3
+3	541	6789887443558235	CMakeFiles/Hello.dir/main.cpp.obj	3d049b2e8b60da1
+542	736	6789887445483049	Hello.exe	2e08fcb5dae8fcf3
+4	630	6789887632845514	CMakeFiles/Hello.dir/main.cpp.obj	3d049b2e8b60da1
+631	836	6789887634900374	Hello.exe	2e08fcb5dae8fcf3
+4	597	6789887718238485	CMakeFiles/Hello.dir/main.cpp.obj	3d049b2e8b60da1
+598	807	6789887720303293	Hello.exe	2e08fcb5dae8fcf3
+9	1116	6789897393526054	CMakeFiles/Hello.dir/main.cpp.obj	3d049b2e8b60da1
+1117	1321	6789897395667957	Hello.exe	2e08fcb5dae8fcf3
+4	478	6789898953767793	CMakeFiles/Hello.dir/main.cpp.obj	3d049b2e8b60da1
+479	648	6789898955436366	Hello.exe	2e08fcb5dae8fcf3
+3	561	6789899108762709	CMakeFiles/Hello.dir/main.cpp.obj	3d049b2e8b60da1
+562	770	6789899110817605	Hello.exe	2e08fcb5dae8fcf3
+6	900	6790386203508206	CMakeFiles/Hello.dir/main.cpp.obj	3d049b2e8b60da1
+901	1143	6790386205837922	Hello.exe	2e08fcb5dae8fcf3

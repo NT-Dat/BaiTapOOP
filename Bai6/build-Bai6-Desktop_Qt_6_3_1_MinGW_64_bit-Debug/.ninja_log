@@ -1,0 +1,8 @@
+# ninja log v5
+5	1293	6790435216304984	CMakeFiles/Bai6.dir/student.cpp.obj	d3cbe0e6c102798b
+9	1507	6790435218786858	CMakeFiles/Bai6.dir/school.cpp.obj	84a0fc47d9c21f83
+0	1614	6790435219833184	CMakeFiles/Bai6.dir/main.cpp.obj	5a576ba5ccdb732
+1614	1926	6790435222846066	Bai6.exe	3ecfb77e6ec1a3e8
+6	883	6792571149644307	CMakeFiles/Bai6.dir/main.cpp.obj	5a576ba5ccdb732
+10	888	6792571149684209	CMakeFiles/Bai6.dir/school.cpp.obj	84a0fc47d9c21f83
+888	1211	6792571152897255	Bai6.exe	3ecfb77e6ec1a3e8

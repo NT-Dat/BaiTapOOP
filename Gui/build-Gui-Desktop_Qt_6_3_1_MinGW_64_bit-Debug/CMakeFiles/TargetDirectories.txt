@@ -1,0 +1,5 @@
+C:/TienDat/Qt/Gui/build-Gui-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/TienDat/Qt/Gui/build-Gui-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/Gui.dir
+C:/TienDat/Qt/Gui/build-Gui-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/TienDat/Qt/Gui/build-Gui-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/Gui_autogen_timestamp_deps.dir
+C:/TienDat/Qt/Gui/build-Gui-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/Gui_autogen.dir

@@ -1,0 +1,3 @@
+C:/TienDat/Qt/Bai4/build-Bai4-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/Bai4.dir
+C:/TienDat/Qt/Bai4/build-Bai4-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/TienDat/Qt/Bai4/build-Bai4-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
