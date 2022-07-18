@@ -6,6 +6,7 @@ Fresher::Fresher()
 }
 
 void Fresher::setInfo(void){
+    Employee::setInfo();
     cout << "Enter Graduation_date:"; cin >> this->Graduation_date;
     cout << "Enter Graduation_rank:"; cin.ignore(); getline(cin, this->Graduation_rank);
     cout << "Enter Education:"; getline(cin, this->Education);

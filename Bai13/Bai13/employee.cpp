@@ -146,7 +146,7 @@ void Employee::setEmail(void){
 
 void Employee::setPhone(void){
     try{
-        cout << "Enter phone:"; getline(cin, this->Phone);
+        cout << "Enter phone:";cin.ignore(); getline(cin, this->Phone);
         PhoneException(this->Phone);
     }catch(const char* msg){
         cout << msg;
@@ -178,6 +178,19 @@ void Employee::setInfo(void){
     Employee::setPhone();
     Employee::setEmail();
     Employee::setEmployee_type();
+    Employee::addCertificate();
+}
+
+void Employee::addCertificate(void){
+    Certificate certificate;
+    certificate.setCertificate();
+    this->certificate.push_back(move(certificate));
+}
+
+void Employee::showCertificate(void){
+    for(auto &x : this->certificate){
+        x.showCertificate();
+    }
 }
 
 void Employee::ShowInfo(void){
@@ -187,4 +200,5 @@ void Employee::ShowInfo(void){
          << "Phone:" << this->Phone << "--"
          << "Email:" << this->Email << "--"
          << "Employee_type:" << getNameEmployee_type(this->Employee_type) << "--";
+    Employee::showCertificate();
 }

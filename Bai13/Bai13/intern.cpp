@@ -7,7 +7,7 @@ Intern::Intern()
 
 void Intern::setInfo(void){
     Employee::setInfo();
-    cout << "Enter Majors:"; getline(cin, this->Majors);
+    cout << "Enter Majors:";cin.ignore(); getline(cin, this->Majors);
     cout << "Enter Semester:"; cin >> this->Semester;
     cout << "Enter University_name:"; cin.ignore(); getline(cin, this->University_name);
 }

@@ -30,6 +30,8 @@ public:
     void setPhone(void);
     void setEmployee_type(void);
     int getEmployee_type(void);
+    void addCertificate(void);
+    void showCertificate(void);
 };
 
 #endif // EMPLOYEE_H

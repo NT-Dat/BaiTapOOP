@@ -13,6 +13,9 @@ private:
     string CertificatedDate;
 public:
     Certificate();
+    void setCertificate(void);
+    void showCertificate(void);
+    string getCertificatedID(void);
 };
 
 #endif // CERTIFICATE_H
