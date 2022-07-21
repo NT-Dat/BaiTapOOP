@@ -22,12 +22,14 @@ public:
     void setFullName(void);
     void setdoB(void);
     void setyearOfAdmission(void);
+    int getyearOfAdmission(void);
     void setentryPoint(void);
     void addResult(void);
     void showResult(void);
     string getID(void);
     float getGPA(int);
     int getEntryPoint(void);
+    int getBestGPA(void);
     virtual string getType(void);
     virtual void ShowMyInfor(void);
     virtual void setMyInfor(void);

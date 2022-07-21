@@ -156,7 +156,6 @@ void FormalUniversityStudent::ShowMyInfor(void){
 }
 
 void FormalUniversityStudent::setMyInfor(void){
-    this->setID();
     this->setFullName();
     this->setdoB();
     this->setyearOfAdmission();
@@ -188,4 +187,8 @@ int FormalUniversityStudent::getBestGPA(void){
         }
     }
     return gpaMax;
+}
+
+int FormalUniversityStudent::getyearOfAdmission(void){
+    return this->yearOfAdmission;
 }

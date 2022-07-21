@@ -5,6 +5,8 @@
 #include "studentinservice.h"
 #include<memory>
 #include<map>
+#include<vector>
+#include<algorithm>
 
 class Department
 {
@@ -14,11 +16,15 @@ private:
 public:
     Department();
     void setNameDepartment();
+    string getNameDepartment();
     void addStudent(unique_ptr<FormalUniversityStudent>&);
     float getGPAbySemester(string, int);
     int totalStudentByType(string);
     void showBestStudent(void);
     void showStudentinserviceByLink(string);
+    void showStudent_BestGPA(void);
+    bool checkID(string);
+    void show_sortStudent(void);
 };
 
 #endif // DEPARTMENT_H

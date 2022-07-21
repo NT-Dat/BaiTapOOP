@@ -6,7 +6,7 @@ Department::Department()
 }
 
 void Department::setNameDepartment(){
-    cout << "Enter NameDepartment:"; getline(cin, this->nameDepartment);
+    cout << "Enter NameDepartment:"; cin.ignore(); getline(cin, this->nameDepartment);
 }
 
 void Department::addStudent(unique_ptr<FormalUniversityStudent>&student){
@@ -74,5 +74,29 @@ bool Department::checkID(string ID){
         return true;
     }else{
         return false;
+    }
+}
+
+bool comparator(const pair<string, unique_ptr<FormalUniversityStudent>> &a, const pair<string, unique_ptr<FormalUniversityStudent>> &b){
+    if(a.second->getType() != b.second->getType()){
+        return a.second->getType() < b.second->getType();
+    }
+    return a.second->getyearOfAdmission() > b.second->getyearOfAdmission();
+}
+
+void Department::show_sortStudent(void){
+    vector<pair<string, unique_ptr<FormalUniversityStudent>>> vec;
+
+    for (auto& x : this->mapDepartment) {
+        vec.push_back(move(x));
+    }
+    sort(vec.begin(), vec.end(), comparator);
+    this->mapDepartment.clear();
+    for (int i = 0; i < vec.size(); i++)
+    {
+        this->mapDepartment[vec[i].first] = move(vec[i].second);
+    }
+    for(auto &x : this->mapDepartment){
+        x.second->ShowMyInfor();
     }
 }

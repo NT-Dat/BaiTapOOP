@@ -6,21 +6,20 @@ manager::manager()
 }
 
 void manager::addDepartment(void){
-    Department department;
-    department.setNameDepartment();
-    if(this->managerUniversity.count(department.getNameDepartment()) != 0){
+    unique_ptr<Department> department(new Department);
+    department->setNameDepartment();
+    if(this->managerUniversity.count(department->getNameDepartment()) != 0){
         cout << "Department already exist\n";
     }else{
-        this->managerUniversity[department.getNameDepartment()] = department;
+        this->managerUniversity[department->getNameDepartment()] = move(department);
     }
 }
 
 void manager::addStudent(string namedepartment, unique_ptr<FormalUniversityStudent>&student){
     student->setID();
-    Department department;
     bool check = false;
     for(auto &x : this->managerUniversity){
-        if(x.second.checkID(student->getID()) == true){
+        if(x.second->checkID(student->getID()) == true){
             check = true;
             break;
         }
@@ -29,7 +28,7 @@ void manager::addStudent(string namedepartment, unique_ptr<FormalUniversityStude
         cout << "Student already exist\n";
     }else{
         student->setMyInfor();
-        this->managerUniversity[namedepartment].addStudent(student);
+        this->managerUniversity[namedepartment]->addStudent(student);
     }
 }
 
@@ -38,10 +37,22 @@ int manager::totalStudent_type_Department(string namedepartment, string type){
         cout << "Not found\n";
         return 0;
     }else{
-        return this->managerUniversity[namedepartment].totalStudentByType(type);
+        return this->managerUniversity[namedepartment]->totalStudentByType(type);
     }
 }
 
 void manager::showBestStudent_Department(string namedepartment){
-    this->managerUniversity[namedepartment].showBestStudent();
+    this->managerUniversity[namedepartment]->showBestStudent();
+}
+
+void manager::showStudentinserviceByLink_Department(string nameDepartment, string link){
+    this->managerUniversity[nameDepartment]->showStudentinserviceByLink(link);
+}
+
+void manager::showStudent_BestGPA(string nameDepartment){
+    this->managerUniversity[nameDepartment]->showStudent_BestGPA();
+}
+
+void manager::show_sortStudent_Department(string nameDepartment){
+    this->managerUniversity[nameDepartment]->show_sortStudent();
 }
