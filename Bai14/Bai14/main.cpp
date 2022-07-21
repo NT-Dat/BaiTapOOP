@@ -13,6 +13,7 @@ void Menu(managerStudent &manager, int number){
     char type;
     string id;
     int Employee_type;
+    unique_ptr<Student> student;
     do{
         cin >> choice;
         if(choice < 0 || choice > 3){
@@ -26,18 +27,13 @@ void Menu(managerStudent &manager, int number){
         cin >> type;
         switch(type){
         case 'a':
-        {
-            unique_ptr<Student> goodStudent(new GoodStudent);
-            manager.add(goodStudent);
-        }
+            student = make_unique<GoodStudent>();
             break;
         case 'b':
-        {
-            unique_ptr<Student> normalStudent(new NormalStudent);
-            manager.add(normalStudent);
-        }
+            student = make_unique<NormalStudent>();
             break;
         }
+        manager.add(student);
         break;
     case 2:
         manager.showAll();

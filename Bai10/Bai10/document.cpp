@@ -21,11 +21,13 @@ int Document::countWord(void){
 }
 
 int Document::countAa(void){
-    map<char, int> mymap;
+    int count = 0;
     for(char x : this->str){
-        mymap[x]++;
+        if(x == 'A' || x == 'a'){
+            count++;
+        }
     }
-    return mymap['A'] + mymap['a'];
+    return count;
 }
 
 void Document::standard(void){

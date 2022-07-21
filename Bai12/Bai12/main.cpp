@@ -12,6 +12,7 @@ void Menu(managerVehicle &managervehicle){
     char type;
     string id;
     string ProductionCompany, color;
+    unique_ptr<Vehicle> vehicle;
     do{
         cin >> choice;
         if(choice < 0 || choice > 4){
@@ -26,25 +27,18 @@ void Menu(managerVehicle &managervehicle){
         cin >> type;
         switch(type){
         case 'a':
-        {
-            unique_ptr<Vehicle> car(new Car);
-            car->setInfo();
-            managervehicle.add(car);
-        }
+
+            vehicle = make_unique<Car>();
             break;
         case 'b':
-        {
-            unique_ptr<Vehicle> motorbike(new Motorbike);
-            motorbike->setInfo();
-            managervehicle.add(motorbike);
-        }
+            vehicle = make_unique<Motorbike>();
             break;
         case 'c':
-            unique_ptr<Vehicle> truck(new Truck);
-            truck->setInfo();
-            managervehicle.add(truck);
+            vehicle = make_unique<Truck>();
             break;
         }
+        vehicle->setInfo();
+        managervehicle.add(vehicle);
         break;
     case 2:
         cout << "Vehicle information\n";

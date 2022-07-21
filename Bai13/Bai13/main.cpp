@@ -12,6 +12,7 @@ void Menu(EmployeeManagement &employeeManagement){
     char type;
     string id;
     int Employee_type;
+    unique_ptr<Employee> employee;
     do{
         cin >> choice;
         if(choice < 0 || choice > 4){
@@ -26,22 +27,16 @@ void Menu(EmployeeManagement &employeeManagement){
         cin >> type;
         switch(type){
         case 'a':
-        {
-            unique_ptr<Employee> experience(new Experience);
-            employeeManagement.addEmployee(experience);
-        }
+            employee = make_unique<Experience>();
             break;
         case 'b':
-        {
-            unique_ptr<Employee> fresher(new Fresher);
-            employeeManagement.addEmployee(fresher);
-        }
+            employee = make_unique<Fresher>();
             break;
         case 'c':
-            unique_ptr<Employee> intern(new Intern);
-            employeeManagement.addEmployee(intern);
+            employee = make_unique<Intern>();
             break;
         }
+        employeeManagement.addEmployee(employee);
         break;
     case 2:
         cout << "Enter ID\n";
