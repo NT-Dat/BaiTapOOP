@@ -1,0 +1,3 @@
+C:/TienDat/Qt/New folder/build-untitled-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/untitled.dir
+C:/TienDat/Qt/New folder/build-untitled-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/TienDat/Qt/New folder/build-untitled-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir

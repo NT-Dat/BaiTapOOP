@@ -1,98 +1,153 @@
 #include <iostream>
+#include<windows.h>
+#include "_common.h"
+#include "_board.h"
+#include "_game.h"
+#include "_point.h"
+#include <stdio.h>
+#include <conio.h>
+#include <fstream>
 using namespace std;
 
-class TicTacToe
-{
-private:
-    char board[3][3];
-public:
-    TicTacToe();
-    void DrawBoard();
-    void PrintBoard();
-    void GetMove(const char& player);
-    void TogglePlayer(char& player);
-    bool DetermineDraw(char& playerWin);
-};
+#define BOARD_SIZE 1
+#define LEFT 1
+#define TOP 1
 
-TicTacToe::TicTacToe()
-{
-     for (int i = 0; i < 9; i++)
-         board[i / 3][i % 3] = '1' + i;
-}
+void NewGame(void);
 
-void TicTacToe::DrawBoard()
-{
-    system("cls");
-    cout <<"\tWelcome to the Classes Tic Tac Toe! \n";
-
-    for(int i=0; i<3; i++)
-    {
-        for(int j=0; j<3; j++)
-        {
-            cout << board[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
-
-
-void TicTacToe::GetMove(const char& player)
-{
-    int move;
-    cout <<"\nEnter the number of the field you would like to move:\n";
-    cin >> move;
-    for(int i = 1; i <= 9; i++){
-        if(move == i){
-            i--;
-            board[i/3][i%3] = player;
-            break;
-        }
-    }
-}
-
-void TicTacToe::TogglePlayer(char& player)
-{
-    if (player == 'X')
-        player = 'O';
-    else if(player == 'O')
-        player = 'X';
-}
-
-bool TicTacToe::DetermineDraw(char& playerWin)
-{
-    for(int i=0; i<3; i++)
-    {
-        for(int j=0; j<3; j++)
-        {
-            if((board[i][0] == board[i][1] && board[i][1] == board[i][2]) || (board[0][j] == board[1][j] && board[1][j] == board[2][j])){
-                if(board[i][0] == 'X'){
-                    playerWin = 'X';
-                }else{
-                    playerWin = 'Y';
-                }
-                return true;
-            }
-        }
-    }
-    return false;
-}
+_Game g(BOARD_SIZE, LEFT, TOP);
 
 int main()
 {
-    TicTacToe game;
-    char player = 'X';
-    char playerWin = 'X';
-    while(game.DetermineDraw(playerWin) == false)
-    {
-        game.DrawBoard();
-        game.GetMove(player);
-        game.TogglePlayer(player);
-    }
-    game.DrawBoard();
-    if(playerWin == 'X'){
-        cout << "\nX win";
-    }else{
-        cout << "\nY win";
-    }
+    _Common::fixConsoleWindow();
+    g.Turn(true);
+    _Common::gotoXY(40, 10);
+    fflush(stdin);
+    cout << "Name Player 1 : ";
+    g.GetUser1().Input();
+    _Common::gotoXY(40, 12);
+    fflush(stdin);
+    cout << "Name Player 2 : ";
+    g.GetUser2().Input();
+    g.Init(BOARD_SIZE, LEFT, TOP);
+    g.startGame();
+    g.Turn(true);
+    NewGame();
     system("pause");
 }
+
+void NewGame()
+{
+    bool init = true;
+    bool turn = g.GetTurn();
+    bool options = g.GetOptions();
+    g.SetLoop(true);
+    int cur = -1;
+    int *x = new int[BOARD_SIZE*BOARD_SIZE];
+    int *y = new int[BOARD_SIZE*BOARD_SIZE];
+    for (int i = 0; i < BOARD_SIZE*BOARD_SIZE; i++)
+    {
+        x[i] = -1;
+        y[i] = -1;
+    }
+
+    while (g.isContinue())
+    {
+        int key = g.processFinishTime();
+        switch (key)
+        {
+        case -1: case 1: case 0:
+            if (g.askContinue() != 'Y') g.exitGame();
+            else
+            {
+                system("cls");
+                //g.Init(BOARD_SIZE, LEFT, TOP);
+                g.SetLoop(true);
+                g.waitKeyBoard();
+                g.GetUser1().InitStep();
+                g.GetUser2().InitStep();
+                g.SetX(LEFT);
+                g.SetY(TOP);
+                g.startGame();
+                g.Turn(turn);
+                NewGame();
+                g.exitGame();
+            }
+        }
+    }
+
+    g.waitKeyBoard();
+    if (g.getCommand() == 27) g.exitGame();
+    else
+    {
+        switch (g.getCommand())
+        {
+        case 59:
+            system("cls");
+            g.Init(BOARD_SIZE, LEFT, TOP);
+            g.startGame();
+            g.Turn(turn);
+            NewGame();
+            break;
+        case 62:
+            if (cur >= 0 && x[cur] >= 0 && y[cur] >= 0)
+            {
+                g.Undo(x[cur], y[cur]);
+                x[cur] = -1;
+                y[cur] = -1;
+                cur--;
+            }
+            g.ShowInfor();
+            break;
+        case 'A': case 75:
+            g.moveLeft();
+            break;
+        case 'W': case 72:
+            g.moveUp();
+            break;
+        case 'S': case 80:
+            g.moveDown();
+            break;
+        case 'D': case 77:
+            g.moveRight();
+            break;
+        case 13: case 32:
+
+            //Đánh dấu bàn cờ, sau đó kiểm tra và xử lý thắng/thua/hòa/tiếp tục
+            if (g.processCheckBoard())
+            {
+                cur++;
+                x[cur] = g.GetX();
+                y[cur] = g.GetY();
+
+                int key = g.processFinish();
+                switch (key)
+                {
+                case -1: case 1: case 0:
+                    if (g.askContinue() != 'Y') g.exitGame();
+                    else
+                    {
+                        system("cls");
+                        //g.Init(BOARD_SIZE, LEFT, TOP);
+                        g.SetLoop(true);
+                        g.waitKeyBoard();
+                        g.GetUser1().InitStep();
+
+                        g.GetUser2().InitStep();
+
+                        g.SetX(LEFT);
+                        g.SetY(TOP);
+                        g.startGame();
+                        g.Turn(turn);
+                        NewGame();
+                        g.exitGame();
+                    }
+                }
+            }
+            g.ShowInfor();
+            break;
+        }
+    }
+    //Sleep(50);
+}
+

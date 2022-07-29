@@ -1,0 +1,17 @@
+# ninja log v5
+9	1919	6804399869123638	CMakeFiles/Bai13.dir/Certificate.cpp.obj	9be47b7b2911fed5
+0	127	6804400603562655	build.ninja	a73c6532be50b398
+25	2474	6804403760400601	CMakeFiles/Bai13.dir/Experience.cpp.obj	f384462fe0aec0c9
+89	2224	6804406149609136	CMakeFiles/Bai13.dir/Experience.cpp.obj	f384462fe0aec0c9
+36	3927	6804409410030076	CMakeFiles/Bai13.dir/Intern.cpp.obj	341b9aab05d2c28c
+45	3986	6804409410773214	CMakeFiles/Bai13.dir/Fresher.cpp.obj	5c6825571b060ffa
+19	4539	6804409416333584	CMakeFiles/Bai13.dir/Employee.cpp.obj	912c816fda68eb90
+18	3005	6804410567815435	CMakeFiles/Bai13.dir/Employee.cpp.obj	912c816fda68eb90
+37	3332	6804410570927107	CMakeFiles/Bai13.dir/Fresher.cpp.obj	5c6825571b060ffa
+25	3445	6804410571944388	CMakeFiles/Bai13.dir/Experience.cpp.obj	f384462fe0aec0c9
+23	3555	6804410572727394	CMakeFiles/Bai13.dir/Intern.cpp.obj	341b9aab05d2c28c
+31	4058	6804410578597085	CMakeFiles/Bai13.dir/ManagerEmployee.cpp.obj	252f1826f1e025e5
+6	3250	6804413392645528	CMakeFiles/Bai13.dir/main.cpp.obj	dc933d2188419862
+8	3154	6804414741768826	CMakeFiles/Bai13.dir/Employee.cpp.obj	912c816fda68eb90
+8	2980	6804415077069651	CMakeFiles/Bai13.dir/Employee.cpp.obj	912c816fda68eb90
+2981	3667	6804415084569818	Bai13.exe	b576644bca509516
