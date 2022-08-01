@@ -183,37 +183,56 @@ bool Control::CheckValid(const int &row,const int &col){
 }
 char Control::CheckResult(const int &row,const int &col, char &play){
     std::vector<std::vector <char>> check = userPlay.getTurn();
-    for(int i = 0; i <= check.size() - 4; i++){
-        if(check[row][i] == play && check[row][i+1] == play && check[row][i+2] == play && check[row][i+3] == play) return play;
-    }
-
-    for(int i = 0; i <= check.size() - 4; i++){
-        if(check[i][col] == play && check[i+1][col] == play && check[i+2][col] == play && check[i+3][col] == play) return play;
-    }
-
-    if(row >= col && (row - col) <= (check.size() - 4)){
-        for(int i = row - col; i <= check.size()-4; i++){
-            if(check[i][i-(row-col)] == play && check[i+1][i+1-(row-col)] == play && check[i+2][i+2-(row-col)] == play && check[i+3][i+3-(row-col)] == play){
-                return play;
+    int count = 1;
+    if(col - 1 >= 0 && check[row][col-1] == play){
+        count++;
+        if(col-2 >= 0 && check[row][col-2] == play){
+            count++;
+            if(col - 3 >= 0 && check[row][col-3] == play){
+                count++;
+            }else{
+                goto checkright;
             }
+        }else{
+            goto checkright;
         }
-    }else if(row < col && (col - row) <= (check.size()-4)){
-        for(int i = col - row; i <= check.size()-4;i++){
-            if(check[i-(col-row)][i] == play && check[i+1-(col-row)][i+1] == play && check[i+2-(col-row)][i+2] == play && check[i+3-(col-row)][i+3] == play){
-                return play;
-            }
+    }else{
+        checkright:
+        if(col + 1 < check.size() && check[row][col+1] == play){
+            count++;
         }
     }
+//    for(int i = 0; i <= check.size() - 4; i++){
+//        if(check[row][i] == play && check[row][i+1] == play && check[row][i+2] == play && check[row][i+3] == play) return play;
+//    }
 
-    if((row+col) < check.size() && (row + col) >= 3){
-        for(int i = row + col; i <= check.size()-4;i++){
-            if(check[i-(col-row)][i] == play && check[i+1-(col-row)][i+1] == play && check[i+2-(col-row)][i+2] == play && check[i+3-(col-row)][i+3] == play){
-                return play;
-            }
-        }
-    }else if((row+col) >= check.size() && (row + col) <= check.size() + 4){
+//    for(int i = 0; i <= check.size() - 4; i++){
+//        if(check[i][col] == play && check[i+1][col] == play && check[i+2][col] == play && check[i+3][col] == play) return play;
+//    }
 
-    }
+//    if(row >= col && (row - col) <= (check.size() - 4)){
+//        for(int i = row - col; i <= check.size()-4; i++){
+//            if(check[i][i-(row-col)] == play && check[i+1][i+1-(row-col)] == play && check[i+2][i+2-(row-col)] == play && check[i+3][i+3-(row-col)] == play){
+//                return play;
+//            }
+//        }
+//    }else if(row < col && (col - row) <= (check.size()-4)){
+//        for(int i = col - row; i <= check.size()-4;i++){
+//            if(check[i-(col-row)][i] == play && check[i+1-(col-row)][i+1] == play && check[i+2-(col-row)][i+2] == play && check[i+3-(col-row)][i+3] == play){
+//                return play;
+//            }
+//        }
+//    }
+
+//    if((row+col) < check.size() && (row + col) >= 3){
+//        for(int i = row + col; i <= check.size()-4;i++){
+//            if(check[i-(col-row)][i] == play && check[i+1-(col-row)][i+1] == play && check[i+2-(col-row)][i+2] == play && check[i+3-(col-row)][i+3] == play){
+//                return play;
+//            }
+//        }
+//    }else if((row+col) >= check.size() && (row + col) <= check.size() + 4){
+
+//    }
 
 //    for(int i =0; i<check.size();i++){
 //        for(int j =0; j<check.size();j++){
