@@ -10,7 +10,8 @@ int main(){
         std::cout<<"Enter 2: To playgame "<<std::endl;
         std::cout<<"Enter 3: To show infor"<<std::endl;
         std::cout<<"Enter 4: To find player same level"<<std::endl;
-        std::cout<<"Enter 5: To exit."<<std::endl;
+        std::cout<<"Enter 5: To replay"<<std::endl;
+        std::cout<<"Enter 6: To exit."<<std::endl;
 
         int select;
         std::cin >> select;
@@ -34,7 +35,12 @@ int main(){
             break;
         }
 
-        case 5:
+        case 5: {
+            control.Replay();
+            break;
+        }
+
+        case 6:
             return 0;
 
         default:
