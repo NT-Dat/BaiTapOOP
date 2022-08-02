@@ -162,102 +162,167 @@ bool Control::CheckValid(const int &row,const int &col){
 }
 char Control::CheckResult(const int &row,const int &col, char &play){
     std::vector<std::vector <char>> check = userPlay.getTurn();
-    for(int i = col, j = col, count = 1, flag = 1; i >= 0 && j < check.size();){
+    for(int i = col, j = col, count = 1, flag = 1, flag2 = 0; i >= 0 && j < check.size();){
         if(flag){
             if((i - 1 >= 0) && (check[row][i-1] == play)){
                 count++;
-                if(count == 4){
-                    return play;
+                if(count == 5){
+                    if((i - 2 >= 0) && (check[row][i-2] == play || check[row][i-2] == ' ')){
+                        return play;
+                    }else{
+                        flag = 0;
+                        flag2 = 1;
+                    }
                 }
                 i--;
             }else{
+                if((i - 1 >= 0) && (check[row][i-1] != ' ')){
+                    flag2 = 1;
+                }
                 flag = 0;
             }
         }else{
-            if((j + 1 < check.size()) && (check[row][j+1] == play)){
-                count++;
-                if(count == 4){
+            if(count == 5){
+                if((j + 1 < check.size()) && (check[row][j+1] == play || check[row][j+1] == ' ')){
                     return play;
+                }else{
+                    if(flag2 == 0){
+                        return play;
+                    }
+                    break;
                 }
-                j++;
             }else{
-                break;
+                if((j + 1 < check.size()) && (check[row][j+1] == play)){
+                    count++;
+                    j++;
+                }else{
+                    break;
+                }
             }
         }
     }
 
-    for(int i = row, j = row, count = 1, flag = 1; i >= 0 && j < check.size();){
+    for(int i = row, j = row, count = 1, flag = 1, flag2 = 0; i >= 0 && j < check.size();){
         if(flag){
             if((i - 1 >= 0) && (check[i - 1][col] == play)){
                 count++;
-                if(count == 4){
-                    return play;
+                if(count == 5){
+                    if((i - 2 >= 0) && (check[i - 2][col] == play || check[i - 2][col] == ' ')){
+                        return play;
+                    }
+                    else{
+                        flag = 0;
+                        flag2 = 1;
+                    }
                 }
                 i--;
             }else{
+                if((i - 1 >= 0) && (check[i - 1][col] != ' ')){
+                    flag2 = 1;
+                }
                 flag = 0;
             }
         }else{
-            if((j + 1 < check.size()) && (check[j+1][col] == play)){
-                count++;
-                if(count == 4){
+            if(count == 5){
+                if((j + 1 < check.size()) && (check[j+1][col] == play || check[j+1][col] == ' ')){
                     return play;
+                }else{
+                    if(flag2 == 0){
+                        return play;
+                    }
+                    break;
                 }
-                j++;
             }else{
-                break;
+                if((j + 1 < check.size()) && (check[j+1][col] == play)){
+                    count++;
+                    j++;
+                }else{
+                    break;
+                }
             }
         }
     }
 
-    for(int i1 = row, i2 = row, j1 =col, j2 = col, count = 1, flag = 1; i1 >= 0 && j1 >= 0  && i2 < check.size() && j2 < check.size();){
+    for(int i1 = row, i2 = row, j1 =col, j2 = col, count = 1, flag = 1, flag2 = 0; i1 >= 0 && j1 >= 0  && i2 < check.size() && j2 < check.size();){
         if(flag){
             if((i1 - 1 >= 0) && (j1 - 1 >= 0) && (check[i1 - 1][j1 - 1] == play)){
                 count++;
-                if(count == 4){
-                    return play;
+                if(count == 5){
+                    if((i1 - 2 >= 0) && (j1 - 2 >= 0) && (check[i1 - 2][j1 - 2] == play || check[i1 - 2][j1 - 2] == ' ')){
+                        return play;
+                    }else{
+                        flag = 0;
+                        flag2 = 1;
+                    }
                 }
                 i1--;
                 j1--;
             }else{
+                if((i1 - 1 >= 0) && (j1 - 1 >= 0) && (check[i1 - 1][j1 - 1] != ' ')){
+                    flag2 = 1;
+                }
                 flag = 0;
             }
         }else{
-            if((i2 + 1 < check.size()) && (j2 + 1 < check.size()) && (check[i2 + 1][j2 + 1] == play)){
-                count++;
-                if(count == 4){
+            if(count == 5){
+                if((i2 + 1 < check.size()) && (j2 + 1 < check.size()) && (check[i2 + 1][j2 + 1] == play || check[i2 + 1][j2 + 1] == ' ')){
                     return play;
+                }else{
+                    if(flag2 == 0){
+                        return play;
+                    }
+                    break;
                 }
-                i2++;
-                j2++;
             }else{
-                break;
+                if((i2 + 1 < check.size()) && (j2 + 1 < check.size()) && (check[i2 + 1][j2 + 1] == play)){
+                    count++;
+                    i2++;
+                    j2++;
+                }else{
+                    break;
+                }
             }
         }
     }
 
-    for(int i1 = row, i2 = row, j1 =col, j2 = col, count = 1, flag = 1; i1 >= 0 && j2 >= 0  && i2 < check.size() && j1 < check.size();){
+    for(int i1 = row, i2 = row, j1 =col, j2 = col, count = 1, flag = 1, flag2 = 0; i1 >= 0 && j2 >= 0  && i2 < check.size() && j1 < check.size();){
         if(flag){
             if((i1 - 1 >= 0) && (j1 + 1 < check.size()) && (check[i1 - 1][j1+1] == play)){
                 count++;
-                if(count == 4){
-                    return play;
+                if(count == 5){
+                    if((i1 - 2 >= 0) && (j1 + 2 < check.size()) && (check[i1 - 2][j1+2] == play || check[i1 - 2][j1+2] == ' ')){
+                        return play;
+                    }else{
+                        flag = 0;
+                        flag2 = 1;
+                    }
                 }
                 i1--;
                 j1++;
             }else{
+                if((i1 - 1 >= 0) && (j1 + 1 < check.size()) && (check[i1 - 1][j1+1] != ' ')){
+                    flag2 = 1;
+                }
                 flag = 0;
             }
         }else{
-            if((j2 - 1 >= 0) && (i2 + 1 < check.size()) && (check[i2 + 1][j2-1] == play)){
-                count++;
-                if(count == 4){
+            if(count == 5){
+                if((j2 - 1 >= 0) && (i2 + 1 < check.size()) && (check[i2 + 1][j2-1] == play || check[i2 + 1][j2-1] == ' ')){
                     return play;
+                }else{
+                    if(flag2 == 0){
+                        return play;
+                    }
+                    break;
                 }
-                i2++;
-                j2--;
             }else{
-                break;
+                if((j2 - 1 >= 0) && (i2 + 1 < check.size()) && (check[i2 + 1][j2-1] == play)){
+                    count++;
+                    i2++;
+                    j2--;
+                }else{
+                    break;
+                }
             }
         }
     }

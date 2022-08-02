@@ -153,24 +153,54 @@ void Model::UpdateFile(User &user){
 }
 
 void Model::findPlayer(const std::string &name){
-    std::map<std::string,User>::iterator i;
-    bool flag = false;
-    float check_temp = 0;
-    float check = (float)users[name].getWin()/users[name].getLoss();
-    for (i = users.begin(); i != users.end(); i++){
-        if((i->second.getName()!=name)&&((((float)i->second.getWin()/i->second.getLoss()) <= check) && (((float)i->second.getWin()/i->second.getLoss()) > check_temp))){
-            check_temp = (float)i->second.getWin()/i->second.getLoss();
-            flag = true;
+    float check;
+    std::fstream fin;
+    fin.open("reportcard.csv", std::ios::in);
+    std::vector<std::string> row;
+    std::string line, word;
+    while (fin) {
+        row.clear();
+        getline(fin, line);
+        std::stringstream s(line);
+        while (getline(s, word, ',')) {
+            row.push_back(word);
+        }
+        if (row[0] == name) {
+            check = (float)stoi(row[1])/stoi(row[2]);
+            fin.close();
         }
     }
-    if(flag == false){
-        std::cout<<"No have player same level"<<std::endl;
-    }else{
-        std::cout<<"Player same level is:\n";
-        for (i = users.begin(); i != users.end(); i++){
-            if((i->second.getName()!=name)&&(((float)i->second.getWin()/i->second.getLoss()) == check_temp)){
-                std::cout<<i->second.getName()<<std::endl;
-            }
+    fin.open("reportcard.csv", std::ios::in);
+    while (fin) {
+        row.clear();
+        getline(fin, line);
+        std::stringstream s(line);
+        while (getline(s, word, ',')) {
+            row.push_back(word);
+        }
+        if(std::abs((float)stoi(row[1])/stoi(row[2]) - check)){
+
         }
     }
+
+//    std::map<std::string,User>::iterator i;
+//    bool flag = false;
+//    float check_temp = 0;
+//    float check = (float)users[name].getWin()/users[name].getLoss();
+//    for (i = users.begin(); i != users.end(); i++){
+//        if((i->second.getName()!=name)&&((((float)i->second.getWin()/i->second.getLoss()) <= check) && (((float)i->second.getWin()/i->second.getLoss()) > check_temp))){
+//            check_temp = (float)i->second.getWin()/i->second.getLoss();
+//            flag = true;
+//        }
+//    }
+//    if(flag == false){
+//        std::cout<<"No have player same level"<<std::endl;
+//    }else{
+//        std::cout<<"Player same level is:\n";
+//        for (i = users.begin(); i != users.end(); i++){
+//            if((i->second.getName()!=name)&&(((float)i->second.getWin()/i->second.getLoss()) == check_temp)){
+//                std::cout<<i->second.getName()<<std::endl;
+//            }
+//        }
+//    }
 }
