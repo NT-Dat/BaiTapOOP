@@ -127,24 +127,18 @@ void Model::UpdateFile(User &user){
             row[1] = std::to_string(user.getWin());
             row[2] = std::to_string(user.getLoss());
             row[3] = std::to_string(user.getDraw());
-            if (!fin.eof()) {
-                for (int i = 0; i < row_size - 1; i++) {
-                    fout << row[i] << ", ";
-                }
 
-                fout << row[row_size - 1] << "\n";
-            }
         }
-        else {
-            if (!fin.eof()) {
-                for (int i = 0; i < row_size - 1; i++) {
-                    fout << row[i] << ", ";
-                }
-                fout << row[row_size - 1] << "\n";
+        if (!fin.eof()) {
+            for (int i = 0; i < row_size - 1; i++) {
+                fout << row[i] << ", ";
             }
+
+            fout << row[row_size - 1] << "\n";
         }
-        if (fin.eof())
+        else{
             break;
+        }
     }
     fin.close();
     fout.close();
